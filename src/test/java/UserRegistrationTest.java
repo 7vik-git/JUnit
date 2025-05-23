@@ -1,30 +1,32 @@
 import com.gevernova.UserRegistration;
+import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 import static org.junit.jupiter.api.Assertions.*;
 
 public class UserRegistrationTest {
 
+    UserRegistration reg;
+    @BeforeEach
+    void setUp(){
+        reg = new UserRegistration();
+    }
     @Test
     void testValidRegistration() {
-        UserRegistration reg = new UserRegistration();
         assertDoesNotThrow(() -> reg.registerUser("john", "john@example.com", "secure123"));
     }
 
     @Test
     void testInvalidUsername() {
-        UserRegistration reg = new UserRegistration();
-        assertThrows(IllegalArgumentException.class, () -> reg.registerUser("", "user@example.com", "pass123"));
+        assertThrows(IllegalArgumentException.class, () -> reg.registerUser("", "ge@vernova.com", "pass123"));
     }
 
     @Test
     void testInvalidEmail() {
-        UserRegistration reg = new UserRegistration();
-        assertThrows(IllegalArgumentException.class, () -> reg.registerUser("user", "userexample.com", "pass123"));
+        assertThrows(IllegalArgumentException.class, () -> reg.registerUser("user", "gevernova.com", "pass123"));
     }
 
     @Test
     void testInvalidPassword() {
-        UserRegistration reg = new UserRegistration();
-        assertThrows(IllegalArgumentException.class, () -> reg.registerUser("user", "user@example.com", "123"));
+        assertThrows(IllegalArgumentException.class, () -> reg.registerUser("user", "ge@vernova.com", "123"));
     }
 }

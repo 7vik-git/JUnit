@@ -6,7 +6,8 @@ import static org.junit.jupiter.api.Assertions.assertEquals;
 import static org.junit.jupiter.api.Assertions.assertThrows;
 
 public class CalculateTest {
-    Calculate calculate=new Calculate();
+
+    Calculate calculate = new Calculate();
 
     @DisplayName("sathvik")
     @Test
